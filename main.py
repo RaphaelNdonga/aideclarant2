@@ -29,7 +29,7 @@ def parse_documents(
     insurance: Annotated[UploadFile | None, File()] = None,
     import_declaration_form: Annotated[UploadFile | None, File()] = None,
 ):
-    documents = {
+    documents:dict[str, UploadFile] = {
         "commercial_invoice": commercial_invoice,
         "packing_list": packing_list,
         "certificate_of_origin": certificate_of_origin,
@@ -56,7 +56,7 @@ def parse_documents(
 
     ATTACHMENTS_DIR.mkdir(parents=True, exist_ok=True)
     # upload_id = uuid4().hex
-    saved_documents = {}
+    saved_documents:dict[str, str] = {}
     for name, data in contents.items():
         # filename = f"{name}_{upload_id}.pdf"
         filename = f"{name}.pdf"
@@ -72,7 +72,7 @@ def parse_documents(
 @app.post("/executive-summary")
 def executive_summary(saved: Annotated[dict, Depends(parse_documents)]):
     """Save the uploaded PDFs and summarize the complete document set together."""
-    paths = {
+    paths:dict[str, Path] = {
         name: ATTACHMENTS_DIR / Path(path).name
         for name, path in saved["documents"].items()
     }
@@ -83,7 +83,7 @@ def executive_summary(saved: Annotated[dict, Depends(parse_documents)]):
 @app.post("/extract-entry-documents", response_model=ExtractedEntryDocuments)
 def extract_documents(saved: Annotated[dict, Depends(parse_documents)]):
     """Save uploaded PDFs and return structured shipment data without an extraction report."""
-    paths = {
+    paths:dict[str, Path] = {
         name: ATTACHMENTS_DIR / Path(path).name
         for name, path in saved["documents"].items()
     }
