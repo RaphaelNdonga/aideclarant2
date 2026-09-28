@@ -6,11 +6,16 @@ from pydantic import BaseModel, ConfigDict
 class ExtractionModel(BaseModel):
     model_config = ConfigDict(extra="forbid", strict=True)
 
+class Package(ExtractionModel):
+    type: str
+    code: str
+    qty: str
 
 class InvoiceItem(ExtractionModel):
     number: str
     name: str
     qty: str
+    package: Package
     unit_price: str
     total_price: str
 
@@ -24,11 +29,6 @@ class CommercialInvoice(ExtractionModel):
     serial_number: str
     extracted_remarks: str
 
-
-class Package(ExtractionModel):
-    type: str
-    code: str
-    qty: str
 
 
 class PackingItem(ExtractionModel):

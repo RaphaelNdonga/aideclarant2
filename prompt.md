@@ -10,7 +10,7 @@ Accuracy takes priority over completeness. Never invent a value to fill a field.
 
 - Read every PDF in the `attachments` folder. If working in a chat without that folder, use the PDFs attached to the current task.
 - Classify documents by their contents, not just filenames. A PDF may contain more than one document. Inspect every page, including continuation pages.
-- Use `UN-CEFACT-Rec21.xlsx`, when supplied, as the authoritative package-code lookup for this task. Do not assume its codes have been validated for a particular destination system.
+- Use `UN-CEFACT-Rec21.xlsx`, as the authoritative package-code lookup for this task. 
 - The output structure below is authoritative. 
 - Process one shipment/document set per run. Do not combine unrelated shipments or distinct invoices into a single invoice object. If multiple candidate documents exist for the same type, use explicit document references to resolve the intended set. If this remains ambiguous, identify the candidates and ask which set to process.
 - Missing document types do not prevent extraction of the available types. Preserve their objects with blank scalar values and empty arrays.
@@ -75,6 +75,11 @@ Write exactly these keys in `extracted_entry_docs.json`. The objects inside the 
         "number": "",
         "name": "",
         "qty": "",
+        "package": {
+          "type": "",
+          "code": "",
+          "qty": ""
+        },
         "unit_price": "",
         "total_price": ""
       }
@@ -120,6 +125,46 @@ Write exactly these keys in `extracted_entry_docs.json`. The objects inside the 
 
 ```
 
+### Shared package rules
+
+Apply these rules to line_items[].package in both the commercial
+invoice and packing list:
+
+- Prefer explicitly stated item-level physical packaging. Extract
+  its type and printed count into package.type and package.qty.
+- When explicit packaging is absent, use the printed quantity unit
+  as package.type and the printed product quantity as package.qty,
+  provided the unit denotes countable items or groups, such as
+  pieces, sets, pairs, or rolls. Only do this when the package.type is specified alongside the line item. Do not apply this fallback to
+  measurement units such as kg, litres, metres, or square metres.
+- This fallback is an authorized application convention; the source
+  need not explicitly label the quantity unit as packaging.
+- Normalize package.type to a singular, lowercase full word when
+  its meaning is clear: PCS or PC → "piece", SETS → "set",
+  PAIRS → "pair", CARTONS → "carton".
+- Expand only unambiguous abbreviations. Otherwise preserve the
+  printed abbreviation in uppercase and explain the uncertainty
+  in extraction_remarks. Do not blindly remove a trailing "s".
+- For either explicit packaging or the quantity-unit fallback,
+  populate package.code only when the reference workbook verifies
+  the mapping. Match the actual code column and preserve its value
+  exactly; do not singularize, expand, or lowercase the code.
+- If the workbook is unavailable or the code mapping is uncertain,
+  leave package.code blank. Preserve independently supported
+  package.type and package.qty values and report the mapping issue
+  once in extraction_remarks.
+- Keep line_items[].qty governed by its document-specific rules.
+  Do not convert between product quantities and package counts.
+- Package counts must be whole numbers. Never round fractional counts.
+- Do not calculate missing package counts or repeat a shared count
+  across multiple product rows.
+- If explicit packaging exists but its count is missing or its
+  allocation is unclear, leave package.qty blank; do not replace
+  it with the product quantity.
+- If multiple packaging levels or types cannot be represented
+  faithfully by one package object, leave the ambiguous fields
+  blank and explain the issue in extraction_remarks.
+
 ### Commercial invoice
 
 - `incoterm`: Extract the explicitly stated term as an uppercase code, such as `FOB` or `CIF`. Do not infer a term from charges or shipment routing.
@@ -130,6 +175,7 @@ Write exactly these keys in `extracted_entry_docs.json`. The objects inside the 
 - `line_items[].number`: Generate sequential strings starting at `"1"`.
 - `line_items[].name`: Combine the brand or collection and product description only when the document explicitly associates them with that item. Do not repeat a brand already present in the description. Otherwise use the description alone.
 - `line_items[].qty`: Extract the quantity in the source unit. Do not convert cartons into pieces without an explicitly requested conversion rule.
+- `line_items[].package` - refer to the shared package rules
 - `line_items[].unit_price`: Extract the printed unit price.
 - `line_items[].total_price`: Extract the printed extended amount for that product row. Do not calculate a missing amount.
 - `extraction_remarks`: Apply the shared Extraction remarks rules.
@@ -138,9 +184,7 @@ Write exactly these keys in `extracted_entry_docs.json`. The objects inside the 
 
 - `line_items[].number` and `name`: Apply the same numbering and description rules as for the invoice, independently of invoice row order.
 - `line_items[].qty`: Extract the product quantity, not the package count. If only a package count is available, leave product quantity blank.
-- `package.type` and `package.code`: Use the supplied reference workbook to map an explicitly stated package type or code to its corresponding full label and code. Match the actual code column, not an abbreviation invented from the name. Case/whitespace normalization is allowed; leave uncertain or ambiguous mappings blank.
-- If the workbook is missing or a mapping cannot be verified, preserve an explicitly printed full package type where available, leave the standardized code blank. Do not expand an ambiguous abbreviation from memory.
-- `package.qty`: Extract the number of packages explicitly attributable to that item. Do not repeat a shared carton or pallet count across several product rows. Where multiple packaging levels or types exist and the single package object cannot represent them faithfully, leave ambiguous package fields blank.
+- `line_items[].package` - refer to the shared package rules 
 - `total_gross_mass` and `total_net_mass`: 
   - can be found in the document as mass or weight.
   - If there is no distinction between gross and net, register the same value to both total_gross_mass and total_net_mass values in the output.
