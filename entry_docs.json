@@ -11,7 +11,8 @@
             "unit_price": "279",
             "total_price": "7812"
         }],
-        "serial_number": "TI 000673"
+        "serial_number": "TI 000673",
+        "extraction_remarks": ""
     },
 
     "packing_list": {
@@ -27,7 +28,8 @@
             "total_gross_mass": "3332",
             "total_net_mass": "3108"
         }],
-        "total_containers_x_size": ["2x40"]
+        "total_containers_x_size": ["2x40"],
+        "extraction_remarks": ""
     }
     ,
 
@@ -53,7 +55,8 @@
             "address": "11964 - 00400 NAIROBI KE", 
             "country": "Kenya",
             "country_code": "KE"
-        }
+        },
+        "extraction_remarks": ""
     },
     "import_declaration_form": {
         "no": "26EMKIM000731139",
@@ -71,6 +74,7 @@
         "mode_of_transport": {
             "name": "Sea Transport",
             "code": "1"
-        }
+        },
+        "extraction_remarks": ""
     }
 }

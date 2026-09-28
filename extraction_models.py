@@ -22,6 +22,7 @@ class CommercialInvoice(ExtractionModel):
     freight_amount: str
     line_items: list[InvoiceItem]
     serial_number: str
+    extracted_remarks: str
 
 
 class Package(ExtractionModel):
@@ -42,6 +43,7 @@ class PackingItem(ExtractionModel):
 class PackingList(ExtractionModel):
     line_items: list[PackingItem]
     total_containers_x_size: list[str]
+    extracted_remarks: str
 
 
 class Party(ExtractionModel):
@@ -55,6 +57,7 @@ class CertificateOfOrigin(ExtractionModel):
     serial_number: str
     consignor: Party
     consignee: Party
+    extracted_remarks: str
 
 
 class ExtractedEntryDocuments(ExtractionModel):

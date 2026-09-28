@@ -1,0 +1,736 @@
+{
+  "commercial_invoice": {
+    "incoterm": "FOB",
+    "currency": "USD",
+    "fob_amount": "373665.70",
+    "freight_amount": "",
+    "line_items": [
+      {
+        "number": "1",
+        "name": "ROADWING 205/55R16 91 V RW-581",
+        "qty": "75",
+        "unit_price": "18.2",
+        "total_price": "1365.00"
+      },
+      {
+        "number": "2",
+        "name": "ROADWING 185/60R15 84 H RW-581",
+        "qty": "25",
+        "unit_price": "15.7",
+        "total_price": "392.50"
+      },
+      {
+        "number": "3",
+        "name": "ROADWING 175/65R14 82 H RW-581",
+        "qty": "40",
+        "unit_price": "13.8",
+        "total_price": "552.00"
+      },
+      {
+        "number": "4",
+        "name": "ROADWING 175/70R13 82 H RW-581",
+        "qty": "50",
+        "unit_price": "13.5",
+        "total_price": "675.00"
+      },
+      {
+        "number": "5",
+        "name": "ROADWING 165/70R14 81 T RW-581",
+        "qty": "40",
+        "unit_price": "12.7",
+        "total_price": "508.00"
+      },
+      {
+        "number": "6",
+        "name": "ROADWING 175/70R14 84 T RW-581",
+        "qty": "75",
+        "unit_price": "14.6",
+        "total_price": "1095.00"
+      },
+      {
+        "number": "7",
+        "name": "HIFLY 235/55R19 105 XL V VIGOROUS HP801",
+        "qty": "50",
+        "unit_price": "33.3",
+        "total_price": "1665.00"
+      },
+      {
+        "number": "8",
+        "name": "HIFLY LT255/70R15 6PR 107/103 S VIGOROUS AT601",
+        "qty": "25",
+        "unit_price": "38.8",
+        "total_price": "970.00"
+      },
+      {
+        "number": "9",
+        "name": "HIFLY 265/70R16 112 T VIGOROUS AT601",
+        "qty": "30",
+        "unit_price": "35.3",
+        "total_price": "1059.00"
+      },
+      {
+        "number": "10",
+        "name": "HIFLY 215/75R15 100 S VIGOROUS AT601",
+        "qty": "25",
+        "unit_price": "26",
+        "total_price": "650.00"
+      },
+      {
+        "number": "11",
+        "name": "HIFLY 235/75R15 109 XL S VIGOROUS AT601",
+        "qty": "30",
+        "unit_price": "31.7",
+        "total_price": "951.00"
+      },
+      {
+        "number": "12",
+        "name": "HIFLY 31X10.50R15LT 6PR 109 Q VIGOROUS MT601",
+        "qty": "20",
+        "unit_price": "44.6",
+        "total_price": "892.00"
+      },
+      {
+        "number": "13",
+        "name": "AGATE 7.00R16LT 14PR 118/114 M HF702",
+        "qty": "200",
+        "unit_price": "48",
+        "total_price": "9600.00"
+      },
+      {
+        "number": "14",
+        "name": "AGATE 8.25R16LT 16PR 128/124 M HF702",
+        "qty": "50",
+        "unit_price": "68.1",
+        "total_price": "3405.00"
+      },
+      {
+        "number": "15",
+        "name": "AGATE 8.25R20 16PR 139/137 L HF702",
+        "qty": "50",
+        "unit_price": "86.9",
+        "total_price": "4345.00"
+      },
+      {
+        "number": "16",
+        "name": "AGATE 11.00R20 18PR 152/149 K HF702",
+        "qty": "50",
+        "unit_price": "120.8",
+        "total_price": "6040.00"
+      },
+      {
+        "number": "17",
+        "name": "AGATE 12R22.5 18PR 152/149 M HF768",
+        "qty": "50",
+        "unit_price": "110.7",
+        "total_price": "5535.00"
+      },
+      {
+        "number": "18",
+        "name": "AGATE 315/80R22.5 20PR 156/152(154/151) L (M) ST011",
+        "qty": "1170",
+        "unit_price": "107",
+        "total_price": "125190.00"
+      },
+      {
+        "number": "19",
+        "name": "AGATE 12.00R24 20PR 160/157 K HF702",
+        "qty": "50",
+        "unit_price": "138",
+        "total_price": "6900.00"
+      },
+      {
+        "number": "20",
+        "name": "AGATE 215/75R17.5 16PR 135/133 J HF111",
+        "qty": "26",
+        "unit_price": "49.7",
+        "total_price": "1292.20"
+      },
+      {
+        "number": "21",
+        "name": "GALLANT 10.00R20 18PR 149/146 K GL901",
+        "qty": "40",
+        "unit_price": "104",
+        "total_price": "4160.00"
+      },
+      {
+        "number": "22",
+        "name": "GALLANT 295/80R22.5 18PR 152/149 M GL902",
+        "qty": "50",
+        "unit_price": "95",
+        "total_price": "4750.00"
+      },
+      {
+        "number": "23",
+        "name": "GALLANT 11R22.5 18PR 149/146 L GL601",
+        "qty": "100",
+        "unit_price": "88",
+        "total_price": "8800.00"
+      },
+      {
+        "number": "24",
+        "name": "GALLANT 295/80R22.5 18PR 152/149 M GL602",
+        "qty": "50",
+        "unit_price": "92",
+        "total_price": "4600.00"
+      },
+      {
+        "number": "25",
+        "name": "GALLANT 295/80R22.5 18PR 152/149 M GL605",
+        "qty": "50",
+        "unit_price": "92",
+        "total_price": "4600.00"
+      },
+      {
+        "number": "26",
+        "name": "GALLANT 315/80R22.5 20PR 156/152(154/151) L (M) GL601",
+        "qty": "1360",
+        "unit_price": "97",
+        "total_price": "131920.00"
+      },
+      {
+        "number": "27",
+        "name": "GALLANT 315/80R22.5 20PR 156/152(154/151) L (M) GL602",
+        "qty": "200",
+        "unit_price": "98",
+        "total_price": "19600.00"
+      },
+      {
+        "number": "28",
+        "name": "GALLANT 385/65R22.5 20PR 160 K GL621",
+        "qty": "190",
+        "unit_price": "116.6",
+        "total_price": "22154.00"
+      }
+    ],
+    "serial_number": "26HFAXP025-2+CFAXP025-2",
+    "extracted_remarks": "commercial_invoice.pdf p. 1: items 13–16, 19 and 21 have quantities in SETS, although the invoice total and packing-list total are labeled PCS."
+  },
+  "packing_list": {
+    "line_items": [
+      {
+        "number": "1",
+        "name": "AGATE 315/80R22.5 20PR 156/152(154/151) L (M) ST011",
+        "qty": "240",
+        "package": {
+          "type": "",
+          "code": "",
+          "qty": ""
+        },
+        "total_gross_mass": "15840",
+        "total_net_mass": "15840"
+      },
+      {
+        "number": "2",
+        "name": "AGATE 315/80R22.5 20PR 156/152(154/151) L (M) ST011",
+        "qty": "240",
+        "package": {
+          "type": "",
+          "code": "",
+          "qty": ""
+        },
+        "total_gross_mass": "15840",
+        "total_net_mass": "15840"
+      },
+      {
+        "number": "3",
+        "name": "AGATE 315/80R22.5 20PR 156/152(154/151) L (M) ST011",
+        "qty": "240",
+        "package": {
+          "type": "",
+          "code": "",
+          "qty": ""
+        },
+        "total_gross_mass": "15790",
+        "total_net_mass": "15790"
+      },
+      {
+        "number": "4",
+        "name": "AGATE 315/80R22.5 20PR 156/152(154/151) L (M) ST011",
+        "qty": "240",
+        "package": {
+          "type": "",
+          "code": "",
+          "qty": ""
+        },
+        "total_gross_mass": "15760",
+        "total_net_mass": "15760"
+      },
+      {
+        "number": "5",
+        "name": "AGATE 315/80R22.5 20PR 156/152(154/151) L (M) ST011",
+        "qty": "132",
+        "package": {
+          "type": "",
+          "code": "",
+          "qty": ""
+        },
+        "total_gross_mass": "16050",
+        "total_net_mass": "16050"
+      },
+      {
+        "number": "6",
+        "name": "AGATE 8.25R20 16PR 139/137 L HF702",
+        "qty": "50",
+        "package": {
+          "type": "",
+          "code": "",
+          "qty": ""
+        },
+        "total_gross_mass": "16050",
+        "total_net_mass": "16050"
+      },
+      {
+        "number": "7",
+        "name": "AGATE 12.00R24 20PR 160/157 K HF702",
+        "qty": "50",
+        "package": {
+          "type": "",
+          "code": "",
+          "qty": ""
+        },
+        "total_gross_mass": "16050",
+        "total_net_mass": "16050"
+      },
+      {
+        "number": "8",
+        "name": "GALLANT 385/65R22.5 20PR 160 K GL621",
+        "qty": "12",
+        "package": {
+          "type": "",
+          "code": "",
+          "qty": ""
+        },
+        "total_gross_mass": "16050",
+        "total_net_mass": "16050"
+      },
+      {
+        "number": "9",
+        "name": "GALLANT 385/65R22.5 20PR 160 K GL621",
+        "qty": "178",
+        "package": {
+          "type": "",
+          "code": "",
+          "qty": ""
+        },
+        "total_gross_mass": "13060",
+        "total_net_mass": "13060"
+      },
+      {
+        "number": "10",
+        "name": "ROADWING 185/60R15 84 H RW-581",
+        "qty": "25",
+        "package": {
+          "type": "",
+          "code": "",
+          "qty": ""
+        },
+        "total_gross_mass": "13060",
+        "total_net_mass": "13060"
+      },
+      {
+        "number": "11",
+        "name": "ROADWING 175/70R14 84 T RW-581",
+        "qty": "75",
+        "package": {
+          "type": "",
+          "code": "",
+          "qty": ""
+        },
+        "total_gross_mass": "13060",
+        "total_net_mass": "13060"
+      },
+      {
+        "number": "12",
+        "name": "HIFLY 215/75R15 100 S VIGOROUS AT601",
+        "qty": "25",
+        "package": {
+          "type": "",
+          "code": "",
+          "qty": ""
+        },
+        "total_gross_mass": "13060",
+        "total_net_mass": "13060"
+      },
+      {
+        "number": "13",
+        "name": "GALLANT 315/80R22.5 20PR 156/152(154/151) L (M) GL602",
+        "qty": "116",
+        "package": {
+          "type": "",
+          "code": "",
+          "qty": ""
+        },
+        "total_gross_mass": "14510",
+        "total_net_mass": "14510"
+      },
+      {
+        "number": "14",
+        "name": "GALLANT 295/80R22.5 18PR 152/149 M GL902",
+        "qty": "50",
+        "package": {
+          "type": "",
+          "code": "",
+          "qty": ""
+        },
+        "total_gross_mass": "14510",
+        "total_net_mass": "14510"
+      },
+      {
+        "number": "15",
+        "name": "AGATE 315/80R22.5 20PR 156/152(154/151) L (M) ST011",
+        "qty": "78",
+        "package": {
+          "type": "",
+          "code": "",
+          "qty": ""
+        },
+        "total_gross_mass": "14510",
+        "total_net_mass": "14510"
+      },
+      {
+        "number": "16",
+        "name": "GALLANT 11R22.5 18PR 149/146 L GL601",
+        "qty": "83",
+        "package": {
+          "type": "",
+          "code": "",
+          "qty": ""
+        },
+        "total_gross_mass": "14450",
+        "total_net_mass": "14450"
+      },
+      {
+        "number": "17",
+        "name": "GALLANT 295/80R22.5 18PR 152/149 M GL602",
+        "qty": "50",
+        "package": {
+          "type": "",
+          "code": "",
+          "qty": ""
+        },
+        "total_gross_mass": "14450",
+        "total_net_mass": "14450"
+      },
+      {
+        "number": "18",
+        "name": "GALLANT 295/80R22.5 18PR 152/149 M GL605",
+        "qty": "50",
+        "package": {
+          "type": "",
+          "code": "",
+          "qty": ""
+        },
+        "total_gross_mass": "14450",
+        "total_net_mass": "14450"
+      },
+      {
+        "number": "19",
+        "name": "GALLANT 315/80R22.5 20PR 156/152(154/151) L (M) GL601",
+        "qty": "2",
+        "package": {
+          "type": "",
+          "code": "",
+          "qty": ""
+        },
+        "total_gross_mass": "14450",
+        "total_net_mass": "14450"
+      },
+      {
+        "number": "20",
+        "name": "GALLANT 315/80R22.5 20PR 156/152(154/151) L (M) GL602",
+        "qty": "84",
+        "package": {
+          "type": "",
+          "code": "",
+          "qty": ""
+        },
+        "total_gross_mass": "14450",
+        "total_net_mass": "14450"
+      },
+      {
+        "number": "21",
+        "name": "AGATE 7.00R16LT 14PR 118/114 M HF702",
+        "qty": "200",
+        "package": {
+          "type": "",
+          "code": "",
+          "qty": ""
+        },
+        "total_gross_mass": "17330",
+        "total_net_mass": "17330"
+      },
+      {
+        "number": "22",
+        "name": "AGATE 8.25R16LT 16PR 128/124 M HF702",
+        "qty": "50",
+        "package": {
+          "type": "",
+          "code": "",
+          "qty": ""
+        },
+        "total_gross_mass": "17330",
+        "total_net_mass": "17330"
+      },
+      {
+        "number": "23",
+        "name": "AGATE 11.00R20 18PR 152/149 K HF702",
+        "qty": "50",
+        "package": {
+          "type": "",
+          "code": "",
+          "qty": ""
+        },
+        "total_gross_mass": "17330",
+        "total_net_mass": "17330"
+      },
+      {
+        "number": "24",
+        "name": "AGATE 12R22.5 18PR 152/149 M HF768",
+        "qty": "50",
+        "package": {
+          "type": "",
+          "code": "",
+          "qty": ""
+        },
+        "total_gross_mass": "17330",
+        "total_net_mass": "17330"
+      },
+      {
+        "number": "25",
+        "name": "AGATE 215/75R17.5 16PR 135/133 J HF111",
+        "qty": "26",
+        "package": {
+          "type": "",
+          "code": "",
+          "qty": ""
+        },
+        "total_gross_mass": "17330",
+        "total_net_mass": "17330"
+      },
+      {
+        "number": "26",
+        "name": "GALLANT 10.00R20 18PR 149/146 K GL901",
+        "qty": "40",
+        "package": {
+          "type": "",
+          "code": "",
+          "qty": ""
+        },
+        "total_gross_mass": "17330",
+        "total_net_mass": "17330"
+      },
+      {
+        "number": "27",
+        "name": "GALLANT 11R22.5 18PR 149/146 L GL601",
+        "qty": "17",
+        "package": {
+          "type": "",
+          "code": "",
+          "qty": ""
+        },
+        "total_gross_mass": "17330",
+        "total_net_mass": "17330"
+      },
+      {
+        "number": "28",
+        "name": "GALLANT 315/80R22.5 20PR 156/152(154/151) L (M) GL601",
+        "qty": "158",
+        "package": {
+          "type": "",
+          "code": "",
+          "qty": ""
+        },
+        "total_gross_mass": "12770",
+        "total_net_mass": "12770"
+      },
+      {
+        "number": "29",
+        "name": "ROADWING 205/55R16 91 V RW-581",
+        "qty": "75",
+        "package": {
+          "type": "",
+          "code": "",
+          "qty": ""
+        },
+        "total_gross_mass": "12770",
+        "total_net_mass": "12770"
+      },
+      {
+        "number": "30",
+        "name": "ROADWING 175/65R14 82 H RW-581",
+        "qty": "40",
+        "package": {
+          "type": "",
+          "code": "",
+          "qty": ""
+        },
+        "total_gross_mass": "12770",
+        "total_net_mass": "12770"
+      },
+      {
+        "number": "31",
+        "name": "ROADWING 175/70R13 82 H RW-581",
+        "qty": "50",
+        "package": {
+          "type": "",
+          "code": "",
+          "qty": ""
+        },
+        "total_gross_mass": "12770",
+        "total_net_mass": "12770"
+      },
+      {
+        "number": "32",
+        "name": "ROADWING 165/70R14 81 T RW-581",
+        "qty": "40",
+        "package": {
+          "type": "",
+          "code": "",
+          "qty": ""
+        },
+        "total_gross_mass": "12770",
+        "total_net_mass": "12770"
+      },
+      {
+        "number": "33",
+        "name": "HIFLY 235/55R19 105 VXL VIGOROUS HP801",
+        "qty": "50",
+        "package": {
+          "type": "",
+          "code": "",
+          "qty": ""
+        },
+        "total_gross_mass": "12770",
+        "total_net_mass": "12770"
+      },
+      {
+        "number": "34",
+        "name": "HIFLY LT255/70R15 6PR 107/103 S VIGOROUS AT601",
+        "qty": "25",
+        "package": {
+          "type": "",
+          "code": "",
+          "qty": ""
+        },
+        "total_gross_mass": "12770",
+        "total_net_mass": "12770"
+      },
+      {
+        "number": "35",
+        "name": "HIFLY 265/70R16 112 T VIGOROUS AT601",
+        "qty": "30",
+        "package": {
+          "type": "",
+          "code": "",
+          "qty": ""
+        },
+        "total_gross_mass": "12770",
+        "total_net_mass": "12770"
+      },
+      {
+        "number": "36",
+        "name": "HIFLY 235/75R15 109 SXL VIGOROUS AT601",
+        "qty": "30",
+        "package": {
+          "type": "",
+          "code": "",
+          "qty": ""
+        },
+        "total_gross_mass": "12770",
+        "total_net_mass": "12770"
+      },
+      {
+        "number": "37",
+        "name": "HIFLY 31X10.50R15LT 6PR 109 Q VIGOROUS MT601",
+        "qty": "20",
+        "package": {
+          "type": "",
+          "code": "",
+          "qty": ""
+        },
+        "total_gross_mass": "12770",
+        "total_net_mass": "12770"
+      },
+      {
+        "number": "38",
+        "name": "GALLANT 315/80R22.5 20PR 156/152(154/151) L (M) GL601",
+        "qty": "240",
+        "package": {
+          "type": "",
+          "code": "",
+          "qty": ""
+        },
+        "total_gross_mass": "13920",
+        "total_net_mass": "13920"
+      },
+      {
+        "number": "39",
+        "name": "GALLANT 315/80R22.5 20PR 156/152(154/151) L (M) GL601",
+        "qty": "240",
+        "package": {
+          "type": "",
+          "code": "",
+          "qty": ""
+        },
+        "total_gross_mass": "13890",
+        "total_net_mass": "13890"
+      },
+      {
+        "number": "40",
+        "name": "GALLANT 315/80R22.5 20PR 156/152(154/151) L (M) GL601",
+        "qty": "240",
+        "package": {
+          "type": "",
+          "code": "",
+          "qty": ""
+        },
+        "total_gross_mass": "13890",
+        "total_net_mass": "13890"
+      },
+      {
+        "number": "41",
+        "name": "GALLANT 315/80R22.5 20PR 156/152(154/151) L (M) GL601",
+        "qty": "240",
+        "package": {
+          "type": "",
+          "code": "",
+          "qty": ""
+        },
+        "total_gross_mass": "13910",
+        "total_net_mass": "13910"
+      },
+      {
+        "number": "42",
+        "name": "GALLANT 315/80R22.5 20PR 156/152(154/151) L (M) GL601",
+        "qty": "240",
+        "package": {
+          "type": "",
+          "code": "",
+          "qty": ""
+        },
+        "total_gross_mass": "13870",
+        "total_net_mass": "13870"
+      }
+    ],
+    "total_containers_x_size": [
+      "15x40'HQ"
+    ],
+    "extracted_remarks": "packing_list.pdf p. 1: the 15 printed container weights sum to 220880 kg, whereas the printed total and certificate_of_origin.pdf p. 1 state 220580 kg; the packing-list total is labeled PCS, whereas corresponding commercial-invoice items 13–16, 19 and 21 use SETS."
+  },
+  "certificate_of_origin": {
+    "serial_number": "CCPIT5122600016545",
+    "consignor": {
+      "name": "SHANDONG CHANGFENG TYRES CO.,LTD.",
+      "address": "GUANGRAO NEW & HIGH TECHNOLOGY DEVELOPMENT ZONE, DONGYING CITY, SHANDONG PROVINCE, CHINA.",
+      "country": "CHINA",
+      "country_code": "CN"
+    },
+    "consignee": {
+      "name": "AUTOXPRESS LIMITED",
+      "address": "P.O. BOX 99415 - 80100, MOMBASA, KENYA",
+      "country": "KENYA",
+      "country_code": "KE"
+    },
+    "extracted_remarks": "certificate_of_origin.pdf p. 1 states gross weight of 220580 kg, matching the packing-list total but differing from the sum of its printed container weights, 220880 kg."
+  }
+}

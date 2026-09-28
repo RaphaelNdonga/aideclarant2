@@ -11,7 +11,7 @@ from pydantic import ValidationError
 from extraction_models import ExtractedEntryDocuments
 
 MAX_DOCUMENT_BYTES = 50_000_000
-EXTRACTION_PROMPT_PATH = Path(__file__).resolve().parent / "prompt_revamp.md"
+EXTRACTION_PROMPT_PATH = Path(__file__).resolve().parent / "prompt.md"
 PACKAGE_REFERENCE_PATH = Path(__file__).resolve().parent / "UN-CEFACT-Rec21.xlsx"
 
 
