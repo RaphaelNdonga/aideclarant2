@@ -135,7 +135,7 @@ invoice and packing list:
 - When explicit packaging is absent, use the printed quantity unit
   as package.type and the printed product quantity as package.qty,
   provided the unit denotes countable items or groups, such as
-  pieces, sets, pairs, or rolls. Only do this when the package.type is specified alongside the line item. Do not apply this fallback to
+  pieces, sets, pairs, or rolls. Do not apply this fallback to
   measurement units such as kg, litres, metres, or square metres.
 - This fallback is an authorized application convention; the source
   need not explicitly label the quantity unit as packaging.
