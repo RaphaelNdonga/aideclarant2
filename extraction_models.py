@@ -1,4 +1,4 @@
-"""Application output structure defined in prompt_revamp.md."""
+"""Application output structure defined in prompt.md."""
 
 from pydantic import BaseModel, ConfigDict
 
@@ -27,8 +27,7 @@ class CommercialInvoice(ExtractionModel):
     freight_amount: str
     line_items: list[InvoiceItem]
     serial_number: str
-    extracted_remarks: str
-
+    extraction_remarks: str
 
 
 class PackingItem(ExtractionModel):
@@ -43,24 +42,54 @@ class PackingItem(ExtractionModel):
 class PackingList(ExtractionModel):
     line_items: list[PackingItem]
     total_containers_x_size: list[str]
-    extracted_remarks: str
+    extraction_remarks: str
 
 
 class Party(ExtractionModel):
     name: str
     address: str
+
+class CertificateParty(Party):
     country: str
     country_code: str
 
+class Importer(Party):
+    county_code: str
 
 class CertificateOfOrigin(ExtractionModel):
     serial_number: str
-    consignor: Party
-    consignee: Party
-    extracted_remarks: str
+    consignor: CertificateParty
+    consignee: CertificateParty
+    extraction_remarks: str
+
+class ModeOfTransport(ExtractionModel):
+    name: str
+    code: str
+
+class ImportDeclarationItem(ExtractionModel):
+    number: str
+    name: str
+    qty: str
+    qty_unit: str
+    origin: str
+    hs_code: str
+    net_mass: str
+    fob_value: str
+
+
+class ImportDeclarationForm(ExtractionModel):
+    no: str
+    pin: str
+    incoterm: str
+    importer: Importer
+    seller: Party
+    mode_of_transport: ModeOfTransport
+    line_items: list[ImportDeclarationItem]
+    extraction_remarks: str
 
 
 class ExtractedEntryDocuments(ExtractionModel):
     commercial_invoice: CommercialInvoice
     packing_list: PackingList
     certificate_of_origin: CertificateOfOrigin
+    import_declaration_form: ImportDeclarationForm

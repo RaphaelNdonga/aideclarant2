@@ -343,7 +343,7 @@
       }
     ],
     "serial_number": "26HFAXP025-2+CFAXP025-2",
-    "extracted_remarks": "The invoice lists 1360 pieces of GALLANT 315/80R22.5 GL601 and 200 pieces of GALLANT 315/80R22.5 GL602; the packing-list rows for these products total 1444 and 116 pieces, respectively."
+    "extraction_remarks": "Commercial invoice p. 1 FOB amount differs from the IDF shipment FOB value; invoice row 18 lists AGATE ST011 while IDF row 29 lists the same size with pattern HF768, and the IDF includes additional products."
   },
   "packing_list": {
     "line_items": [
@@ -380,8 +380,8 @@
           "code": "PP",
           "qty": "240"
         },
-        "total_gross_mass": "15790",
-        "total_net_mass": "15790"
+        "total_gross_mass": "15840",
+        "total_net_mass": "15840"
       },
       {
         "number": "4",
@@ -392,8 +392,8 @@
           "code": "PP",
           "qty": "240"
         },
-        "total_gross_mass": "15760",
-        "total_net_mass": "15760"
+        "total_gross_mass": "15840",
+        "total_net_mass": "15840"
       },
       {
         "number": "5",
@@ -412,8 +412,8 @@
         "name": "AGATE 8.25R20 16PR 139/137 L HF702",
         "qty": "50",
         "package": {
-          "type": "piece",
-          "code": "PP",
+          "type": "set",
+          "code": "SX",
           "qty": "50"
         },
         "total_gross_mass": "16050",
@@ -424,8 +424,8 @@
         "name": "AGATE 12.00R24 20PR 160/157 K HF702",
         "qty": "50",
         "package": {
-          "type": "piece",
-          "code": "PP",
+          "type": "set",
+          "code": "SX",
           "qty": "50"
         },
         "total_gross_mass": "16050",
@@ -592,8 +592,8 @@
         "name": "AGATE 7.00R16LT 14PR 118/114 M HF702",
         "qty": "200",
         "package": {
-          "type": "piece",
-          "code": "PP",
+          "type": "set",
+          "code": "SX",
           "qty": "200"
         },
         "total_gross_mass": "17330",
@@ -604,8 +604,8 @@
         "name": "AGATE 8.25R16LT 16PR 128/124 M HF702",
         "qty": "50",
         "package": {
-          "type": "piece",
-          "code": "PP",
+          "type": "set",
+          "code": "SX",
           "qty": "50"
         },
         "total_gross_mass": "17330",
@@ -616,8 +616,8 @@
         "name": "AGATE 11.00R20 18PR 152/149 K HF702",
         "qty": "50",
         "package": {
-          "type": "piece",
-          "code": "PP",
+          "type": "set",
+          "code": "SX",
           "qty": "50"
         },
         "total_gross_mass": "17330",
@@ -652,8 +652,8 @@
         "name": "GALLANT 10.00R20 18PR 149/146 K GL901",
         "qty": "40",
         "package": {
-          "type": "piece",
-          "code": "PP",
+          "type": "set",
+          "code": "SX",
           "qty": "40"
         },
         "total_gross_mass": "17330",
@@ -680,8 +680,8 @@
           "code": "PP",
           "qty": "158"
         },
-        "total_gross_mass": "12770",
-        "total_net_mass": "12770"
+        "total_gross_mass": "17330",
+        "total_net_mass": "17330"
       },
       {
         "number": "29",
@@ -855,22 +855,523 @@
     "total_containers_x_size": [
       "15x40'HQ"
     ],
-    "extracted_remarks": "The packing-list rows total 1444 pieces of GALLANT 315/80R22.5 GL601 and 116 pieces of GALLANT 315/80R22.5 GL602; the invoice lists 1360 and 200 pieces, respectively. Quantities described as sets on invoice lines 13–16, 19, and 21 appear under the packing list's pieces total. Weights for mixed-product containers are shared container weights, not separately allocated product weights."
+    "extraction_remarks": "Packing list p. 1 does not distinguish gross from net container weights; the same printed weight is assigned to both fields for products sharing each container. Item-level package units were borrowed from matching commercial-invoice products for rows 1–42; these are quantity-unit fallbacks, not stated physical packaging. The 4171 PCS shipment total does not establish an item-level unit. Packing-list AGATE ST011 quantities differ from IDF rows 28–29, which list different quantities and patterns; packing-list GALLANT GL601 quantities differ from IDF row 45."
   },
   "certificate_of_origin": {
     "serial_number": "CCPIT5122600016545",
     "consignor": {
       "name": "SHANDONG CHANGFENG TYRES CO., LTD.",
-      "address": "GUANGRAO NEW & HIGH TECHNOLOGY DEVELOPMENT ZONE, DONGYING CITY, SHANDONG PROVINCE, CHINA.",
-      "country": "CHINA",
+      "address": "GUANGRAO NEW & HIGH TECHNOLOGY DEVELOPMENT ZONE, DONGYING CITY, SHANDONG PROVINCE, CHINA",
+      "country": "China",
       "country_code": "CN"
     },
     "consignee": {
       "name": "AUTOXPRESS LIMITED",
       "address": "P.O. BOX 99415 - 80100, MOMBASA, KENYA",
-      "country": "KENYA",
+      "country": "Kenya",
       "country_code": "KE"
     },
-    "extracted_remarks": ""
+    "extraction_remarks": ""
+  },
+  "import_declaration_form": {
+    "no": "26MBAIM004065737",
+    "pin": "P000626389L",
+    "incoterm": "CFR",
+    "importer": {
+      "name": "Autoxpress Limited",
+      "address": "14163 - 00800 LIMURU ROAD NAIROBI KE",
+      "county_code": "47"
+    },
+    "seller": {
+      "name": "SHANDONG CHANGFENG TYRES CO. LTD",
+      "address": "GUANGRAO NEW & HIGH DEVELOPMENT ZONE, DONGYING CITY, SHANDONG PROVINCE CHINA"
+    },
+    "mode_of_transport": {
+      "name": "Sea transport",
+      "code": ""
+    },
+    "line_items": [
+      {
+        "number": "1",
+        "name": "TYRE; ROADWING; NEW ROADWING BRAND TYRES SIZE 205/55R16 91V RW-581-75PCS; SHANDONG; UN; 1; 55; 75; 16; 205/55R16; RW-581; 8Kilogram; 1;",
+        "qty": "75.0000",
+        "qty_unit": "UNT",
+        "origin": "CN",
+        "hs_code": "40111000",
+        "net_mass": "594.7500",
+        "fob_value": "1365.0000"
+      },
+      {
+        "number": "2",
+        "name": "TYRE; ROADWING; NEW ROADWING BRAND TYRES SIZE 185/60R15 84H RW-581-25PCS; SHANDONG; UN; 1; 60; 25; 15; 185/60R15; RW-581; 7Kilogram; 1;",
+        "qty": "25.0000",
+        "qty_unit": "UNT",
+        "origin": "CN",
+        "hs_code": "40111000",
+        "net_mass": "167.0000",
+        "fob_value": "392.5000"
+      },
+      {
+        "number": "3",
+        "name": "TYRE; ROADWING; NEW ROADWING BRAND TYRES SIZE 175/65R14 82H RW-581 -40PCS; SHANDONG; UN; 1; 65; 40; 14; 175/65R14; RW-581; 6Kilogram; 1;",
+        "qty": "40.0000",
+        "qty_unit": "UNT",
+        "origin": "CN",
+        "hs_code": "40111000",
+        "net_mass": "239.6000",
+        "fob_value": "552.0000"
+      },
+      {
+        "number": "4",
+        "name": "TYRE; ROADWING; NEW ROADWING BRAND TYRES SIZE 175/70R13 82H RW-581-50PCS; SHANDONG; UN; 1; 70; 50; 13; 175/70R13; RW-581; 6Kilogram; 1;",
+        "qty": "50.0000",
+        "qty_unit": "UNT",
+        "origin": "CN",
+        "hs_code": "40111000",
+        "net_mass": "294.0000",
+        "fob_value": "675.0000"
+      },
+      {
+        "number": "5",
+        "name": "TYRE; ROADWING; NEW ROADWING BRAND TYRES SIZE 165/70R14 81T RW-581-40PCS; SHANDONG; UN; 1; 70; 40; 14; 165/70R14; RW-581; 6Kilogram; 1;",
+        "qty": "40.0000",
+        "qty_unit": "UNT",
+        "origin": "CN",
+        "hs_code": "40111000",
+        "net_mass": "223.6000",
+        "fob_value": "508.0000"
+      },
+      {
+        "number": "6",
+        "name": "TYRE; ROADWING; NEW ROADWING BRAND TYRES SIZE 175/70R14 84T RW-581-75PCS; SHANDONG; UN; 1; 70; 75; 14; 175/70R14; RW-581; 6Kilogram; 1;",
+        "qty": "75.0000",
+        "qty_unit": "UNT",
+        "origin": "CN",
+        "hs_code": "40111000",
+        "net_mass": "455.2500",
+        "fob_value": "1095.0000"
+      },
+      {
+        "number": "7",
+        "name": "TYRE; ROADWING; NEW ROADWING BRAND TYRES SIZE 185/70R14 88H RW-581-500PCS; SHANDONG; UN; 1; 70; 500; 14; 185/70R14; RW-581; 7Kilogram; 1;",
+        "qty": "500.0000",
+        "qty_unit": "UNT",
+        "origin": "CN",
+        "hs_code": "40111000",
+        "net_mass": "3405.0000",
+        "fob_value": "7850.0000"
+      },
+      {
+        "number": "8",
+        "name": "TYRE; HIFLY; NEW HIFLY BRAND TYRES SIZE 235/55R19 105 XL V VIGOROUS HP801-50PCS; SHANDONG; UN; 1; 55; 50; 19; 235/55R19; VIGOROUS HP801; 13Kilogram; 1;",
+        "qty": "50.0000",
+        "qty_unit": "UNT",
+        "origin": "CN",
+        "hs_code": "40111000",
+        "net_mass": "628.5000",
+        "fob_value": "1665.0000"
+      },
+      {
+        "number": "9",
+        "name": "TYRES; HIFLY; NEW HIFLY BRAND TYRES SIZE LT255/70R15 6PR 107/103S VIGOROUS AT601-25PCS; SHANDONG; UN; 1; 70; 25; 15; LT255/70R15; VIGOROUS AT601; 17Kilogram; 1;",
+        "qty": "25.0000",
+        "qty_unit": "UNT",
+        "origin": "CN",
+        "hs_code": "40111000",
+        "net_mass": "415.7500",
+        "fob_value": "970.0000"
+      },
+      {
+        "number": "10",
+        "name": "TYRES; HIFLY; NEW HIFLY BRAND TYRES SIZE 265/70R16 112T VIGOROUS AT601-30PCS; SHANDONG; UN; 1; 70; 30; 16; 265/70R16; VIGOROUS AT601; 16Kilogram; 1;",
+        "qty": "30.0000",
+        "qty_unit": "UNT",
+        "origin": "CN",
+        "hs_code": "40111000",
+        "net_mass": "485.7000",
+        "fob_value": "1059.0000"
+      },
+      {
+        "number": "11",
+        "name": "TYRE; HIFLY; NEW HIFLY BRAND TYRES SIZE 215/75R15 100S VIGOROUS AT601-25PCS; SHANDONG; UN; 1; 75; 25; 15; 215/75/R15; VIGOROUS AT601; 12Kilogram; 1;",
+        "qty": "25.0000",
+        "qty_unit": "UNT",
+        "origin": "CN",
+        "hs_code": "40111000",
+        "net_mass": "290.2500",
+        "fob_value": "650.0000"
+      },
+      {
+        "number": "12",
+        "name": "TYRES; HIFLY; NEW HIFLY BRAND TYRES SIZE 235/75R15 109 XL S VIGOROUS AT601-30PCS; SHANDONG; UN; 1; 75; 30; 15; 235/75 R15; VIGOROUS AT601; 14Kilogram; 1;",
+        "qty": "30.0000",
+        "qty_unit": "UNT",
+        "origin": "CN",
+        "hs_code": "40111000",
+        "net_mass": "426.3000",
+        "fob_value": "951.0000"
+      },
+      {
+        "number": "13",
+        "name": "TYRES; HIFLY; NEW HIFLY BRAND TYRES SIZE 31X10.50R15LT 6PR 109Q VIGOROUS MT601-20PCS; SHANDONG; UN; 1; 10.50; 20; 15; 31X10.50R15LT; VIGOROUS MT601; 19Kilogram; 1;",
+        "qty": "20.0000",
+        "qty_unit": "UNT",
+        "origin": "CN",
+        "hs_code": "40111000",
+        "net_mass": "379.2000",
+        "fob_value": "892.0000"
+      },
+      {
+        "number": "14",
+        "name": "AGATE; NEW AGATE BRAND TYRES SIZE 7.00R16LT 14PR 118/114 M HF702-200PCS; SHANDONG; UN; 1; 7.00; 200; 16; 7.00R16 LT; HF702; 22Kilogram; 1;",
+        "qty": "200.0000",
+        "qty_unit": "UNT",
+        "origin": "CN",
+        "hs_code": "40112010",
+        "net_mass": "4472.0000",
+        "fob_value": "8400.0000"
+      },
+      {
+        "number": "15",
+        "name": "AGATE; NEW AGATE BRAND TUBES SIZE 7.00R16LT -200PCS; SHANDONG; UN; 1; 7.00; 200; 16; 7.00R16; 1; 2Kilogram; 1;",
+        "qty": "200.0000",
+        "qty_unit": "UNT",
+        "origin": "CN",
+        "hs_code": "40131000",
+        "net_mass": "348.0000",
+        "fob_value": "800.0000"
+      },
+      {
+        "number": "16",
+        "name": "FLAP; NEW AGATE BRAND FLAPS SIZE 7.00R16LT f-200PCS; SHANDONG; UN; 1; 200; 1; 1;",
+        "qty": "244.0000",
+        "qty_unit": "KGM",
+        "origin": "CN",
+        "hs_code": "40129090",
+        "net_mass": "244.0000",
+        "fob_value": "400.0000"
+      },
+      {
+        "number": "17",
+        "name": "AGATE; NEW AGATE BRAND TYRES SIZE 8.25R16LT 16PR 128/124M HF702-50PCS; SHANDONG; UN; 1; 8.25; 50; 16; 8.25R16; HF702; 33Kilogram; 1;",
+        "qty": "50.0000",
+        "qty_unit": "UNT",
+        "origin": "CN",
+        "hs_code": "40112010",
+        "net_mass": "1662.5000",
+        "fob_value": "3005.0000"
+      },
+      {
+        "number": "18",
+        "name": "AGATE; NEW AGATE BRAND TUBES SIZE 8.25R16LT -50PCS; SHANDONG; UN; 1; 8.25; 50; 16; 8.25R16; 1; 2Kilogram; 1;",
+        "qty": "50.0000",
+        "qty_unit": "UNT",
+        "origin": "CN",
+        "hs_code": "40131000",
+        "net_mass": "107.0000",
+        "fob_value": "325.0000"
+      },
+      {
+        "number": "19",
+        "name": "FLAPS; NEW AGATE BRAND FLAPS SIZE 8.25R16LT -50PCS; SHANDONG; UN; 1; 50; 1; 1;",
+        "qty": "76.0000",
+        "qty_unit": "KGM",
+        "origin": "CN",
+        "hs_code": "40129090",
+        "net_mass": "76.0000",
+        "fob_value": "75.0000"
+      },
+      {
+        "number": "20",
+        "name": "AGATE; NEW AGATE BRAND TYRES SIZE 8.25R20 16PR 139/137L HF702-50PCS; SHANDONG; UN; 1; 8.25; 50; 20; 8.25R20-16PR; HF702; 40Kilogram; 1;",
+        "qty": "50.0000",
+        "qty_unit": "UNT",
+        "origin": "CN",
+        "hs_code": "40112020",
+        "net_mass": "1991.5000",
+        "fob_value": "3895.0000"
+      },
+      {
+        "number": "21",
+        "name": "AGATE; NEW AGATE BRAND TUBES SIZE 8.25R20 -50PCS; SHANDONG; UN; 1; 8.25; 50; 20; 8.25R20; 1; 2Kilogram; 1;",
+        "qty": "50.0000",
+        "qty_unit": "UNT",
+        "origin": "CN",
+        "hs_code": "40131000",
+        "net_mass": "117.0000",
+        "fob_value": "375.0000"
+      },
+      {
+        "number": "22",
+        "name": "FLAP; NEW AGATE BRAND FLAPS SIZE 8.25R20 -50PCS; SHANDONG; UN; 1; 50; 1; 1;",
+        "qty": "86.0000",
+        "qty_unit": "KGM",
+        "origin": "CN",
+        "hs_code": "40129090",
+        "net_mass": "86.0000",
+        "fob_value": "75.0000"
+      },
+      {
+        "number": "23",
+        "name": "AGATE; NEW AGATE BRAND TYRES SIZE 11.00R20 18PR 152/149K HF702-50PCS; SHANDONG; UN; 1; 11.00; 50; 20; 11.00R20; HF702; 60Kilogram; 1;",
+        "qty": "50.0000",
+        "qty_unit": "UNT",
+        "origin": "CN",
+        "hs_code": "40112020",
+        "net_mass": "2993.0000",
+        "fob_value": "5440.0000"
+      },
+      {
+        "number": "24",
+        "name": "AGATE; NEW AGATE BRAND TUBE SIZE 11.00R20 -50PCS; SHANDONG; UN; 1; 11.00; 50; 20; 11.00R20 TUBE; 1; 4Kilogram; 1;",
+        "qty": "50.0000",
+        "qty_unit": "UNT",
+        "origin": "CN",
+        "hs_code": "40131000",
+        "net_mass": "182.5000",
+        "fob_value": "500.0000"
+      },
+      {
+        "number": "25",
+        "name": "FLAP; NEW AGATE BRAND FLAPS SIZE 11.00R20 -50PCS; SHANDONG; UN; 1; 50; 1; 1;",
+        "qty": "143.0000",
+        "qty_unit": "KGM",
+        "origin": "CN",
+        "hs_code": "40129090",
+        "net_mass": "143.0000",
+        "fob_value": "100.0000"
+      },
+      {
+        "number": "26",
+        "name": "AGATE; NEW AGATE BRAND TYRES SIZE 11R22.5 18PR 149/146L HF702-100PCS; SHANDONG; UN; 1; 11; 100; 22.5; 11R22.5; HF702; 54Kilogram; 1;",
+        "qty": "100.0000",
+        "qty_unit": "UNT",
+        "origin": "CN",
+        "hs_code": "40112020",
+        "net_mass": "5351.0000",
+        "fob_value": "9480.0000"
+      },
+      {
+        "number": "27",
+        "name": "AGATE; NEW AGATE BRAND TYRES SIZE 12R22.5 18PR 152/149 M HF768-50PCS; SHANDONG; UN; 1; 12; 50; 22.5; 12R22.5; HF768; 63Kilogram; 1;",
+        "qty": "50.0000",
+        "qty_unit": "UNT",
+        "origin": "CN",
+        "hs_code": "40112020",
+        "net_mass": "3152.5000",
+        "fob_value": "5535.0000"
+      },
+      {
+        "number": "28",
+        "name": "AGATE; NEW AGATE BRAND TYRES SIZE 315/80R22.5 20PR 156/152(154/151) L (M) ST011-1560PCS; SHANDONG; UN; 1; 80; 1560; 22.5; 315/80R22.5; ST011; 65Kilogram; 1;",
+        "qty": "1560.0000",
+        "qty_unit": "UNT",
+        "origin": "CN",
+        "hs_code": "40112020",
+        "net_mass": "101930.4000",
+        "fob_value": "166920.0000"
+      },
+      {
+        "number": "29",
+        "name": "AGATE; NEW AGATE BRAND TYRES SIZE 315/80R22.5 20PR 156/152(154/151) L (M) HF768-1170PCS; SHANDONG; UN; 1; 80; 1170; 22.5; 315/80R22.5; HF768; 71Kilogram; 1;",
+        "qty": "1170.0000",
+        "qty_unit": "UNT",
+        "origin": "CN",
+        "hs_code": "40112020",
+        "net_mass": "83514.6000",
+        "fob_value": "136305.0000"
+      },
+      {
+        "number": "30",
+        "name": "AGATE; NEW AGATE BRAND TYRES SIZE 385/55R22.5 20PR 160(158) K(L) FTL311-100PCS; SHANDONG; UN; 1; 55; 100; 22.5; 385/55R22.5; FTL311; 71Kilogram; 1;",
+        "qty": "100.0000",
+        "qty_unit": "UNT",
+        "origin": "CN",
+        "hs_code": "40112020",
+        "net_mass": "7087.0000",
+        "fob_value": "13840.0000"
+      },
+      {
+        "number": "31",
+        "name": "AGATE; NEW AGATE BRAND TYRES SIZE 12.00R24 20PR 160/157K HF702-50PCS; SHANDONG; UN; 1; 12.00; 50; 24; 12.00R24; HF702; 78Kilogram; 1;",
+        "qty": "50.0000",
+        "qty_unit": "UNT",
+        "origin": "CN",
+        "hs_code": "40112020",
+        "net_mass": "3900.5000",
+        "fob_value": "6200.0000"
+      },
+      {
+        "number": "32",
+        "name": "AGATE; NEW AGATE BRAND TUBES SIZE 12.00R24-50PCS; SHANDONG; UN; 1; 12.00; 50; 24; 12.00R24; 1; 4Kilogram; 1;",
+        "qty": "50.0000",
+        "qty_unit": "UNT",
+        "origin": "CN",
+        "hs_code": "40131000",
+        "net_mass": "215.0000",
+        "fob_value": "575.0000"
+      },
+      {
+        "number": "33",
+        "name": "AGATE; NEW AGATE BRAND FLAP SIZE 12.00R24 -50PCS; SHANDONG; UN; 1; 50; 1; 1;",
+        "qty": "160.0000",
+        "qty_unit": "KGM",
+        "origin": "CN",
+        "hs_code": "40129090",
+        "net_mass": "160.0000",
+        "fob_value": "125.0000"
+      },
+      {
+        "number": "34",
+        "name": "AGATE; NEW AGATE BRAND TYRES SIZE 215/75R17.5 16PR 135/133 J HF111-100PC; SHANDONG; UN; 1; 75; 100; 17.5; 215/75R17.5; HF111; 26Kilogram; 1;",
+        "qty": "100.0000",
+        "qty_unit": "UNT",
+        "origin": "CN",
+        "hs_code": "40112020",
+        "net_mass": "2630.0000",
+        "fob_value": "4970.0000"
+      },
+      {
+        "number": "35",
+        "name": "GALLANT; NEW GALLANT BRAND TYRES SIZE 10.00R20 18PR 149/146 K GL901-40PCS; SHANDONG; UN; 1; 10.00; 40; 20; 10.00R20; GL901; 51Kilogram; 1;",
+        "qty": "40.0000",
+        "qty_unit": "UNT",
+        "origin": "CN",
+        "hs_code": "40112020",
+        "net_mass": "2034.0000",
+        "fob_value": "3720.0000"
+      },
+      {
+        "number": "36",
+        "name": "GALLANT; NEW GALLANT BRAND TUBES SIZE 10.00R20 -40PCS; SHANDONG; UN; 1; 10.00; 40; 20; 10.00R20; 1; 3Kilogram; 0;",
+        "qty": "40.0000",
+        "qty_unit": "UNT",
+        "origin": "CN",
+        "hs_code": "40131000",
+        "net_mass": "120.0000",
+        "fob_value": "380.0000"
+      },
+      {
+        "number": "37",
+        "name": "FLAP; NEW GALLANT BRAND FLAPS SIZE 10.00R20 -40PCS; SHANDONG; UN; 1; 40; 1; 1;",
+        "qty": "100.4000",
+        "qty_unit": "KGM",
+        "origin": "CN",
+        "hs_code": "40129090",
+        "net_mass": "100.4000",
+        "fob_value": "60.0000"
+      },
+      {
+        "number": "38",
+        "name": "GALLANT; NEW GALLANT BRAND TYRES SIZE 295/80R22.5 18PR 152/149M GL902-50PCS; SHANDONG; UN; 1; 80; 50; 22.5; 295/80R22.5; GL902; 53Kilogram; 1;",
+        "qty": "50.0000",
+        "qty_unit": "UNT",
+        "origin": "CN",
+        "hs_code": "40112020",
+        "net_mass": "2664.0000",
+        "fob_value": "4750.0000"
+      },
+      {
+        "number": "39",
+        "name": "AGATE; NEW AGATE BRAND TYRES SIZE 315/80R22.5 20PR 157/154M HF901es-360PCS; SHANDONG; UN; 1; 80; 360; 22.5; 315/80R22.5; HF901es; 60Kilogram; 1;",
+        "qty": "360.0000",
+        "qty_unit": "UNT",
+        "origin": "CN",
+        "hs_code": "40112020",
+        "net_mass": "21715.2000",
+        "fob_value": "35640.0000"
+      },
+      {
+        "number": "40",
+        "name": "AGATE; NEW AGATE BRAND TYRES SIZE 315/80R22.5 20PR 156/152(154/151) L (M) RSHF375 -240P; SHANDONG; UN; 1; 80; 240; 22.5; 315/80R22.5; RSHF375; 65Kilogram; 1;",
+        "qty": "240.0000",
+        "qty_unit": "UNT",
+        "origin": "CN",
+        "hs_code": "40112020",
+        "net_mass": "15664.8000",
+        "fob_value": "25920.0000"
+      },
+      {
+        "number": "41",
+        "name": "GALLANT; NEW GALLANT BRAND TYRES SIZE 11R22.5 18PR 149/146L GL601-100PCS; SHANDONG; UN; 1; 11; 100; 22.5; 11R22.5; GL601; 48Kilogram; 1;",
+        "qty": "100.0000",
+        "qty_unit": "UNT",
+        "origin": "CN",
+        "hs_code": "40112020",
+        "net_mass": "4809.0000",
+        "fob_value": "8800.0000"
+      },
+      {
+        "number": "42",
+        "name": "GALLANT; NEW GALLANT BRAND TYRES SIZE 12R22.5 18PR 152/149M GL601 100PCS; SHANDONG; UN; 1; 12; 100; 22.5; 12R22.5; GL601; 55Kilogram; 1;",
+        "qty": "100.0000",
+        "qty_unit": "UNT",
+        "origin": "CN",
+        "hs_code": "40112020",
+        "net_mass": "5504.0000",
+        "fob_value": "9700.0000"
+      },
+      {
+        "number": "43",
+        "name": "GALLANT; NEW GALLANT BRAND TYRES SIZE 295/80R22.5 18PR 152/149M GL602-50PCS; SHANDONG; UN; 1; 80; 50; 22.5; 295/80R22.5; GL602; 51Kilogram; 1;",
+        "qty": "50.0000",
+        "qty_unit": "UNT",
+        "origin": "CN",
+        "hs_code": "40112020",
+        "net_mass": "2549.5000",
+        "fob_value": "4600.0000"
+      },
+      {
+        "number": "44",
+        "name": "GALLANT; NEW GALLANT BRAND TYRES SIZE 295/80R22.5 18PR 152/149M GL605-50PCS; SHANDONG; UN; 1; 80; 50; 22.5; 295/80R22.5; GL605; 52Kilogram; 1;",
+        "qty": "50.0000",
+        "qty_unit": "UNT",
+        "origin": "CN",
+        "hs_code": "40112020",
+        "net_mass": "2610.0000",
+        "fob_value": "4600.0000"
+      },
+      {
+        "number": "45",
+        "name": "GALLANT; NEW GALLANT BRAND TYRES SIZE 315/80R22.5 20PR 156/152(154/151)L (M) GL601-1440PC; SHANDONG; UN; 1; 80; 1440; 22.5; 315/80 R22.5; GL601; 57Kilogram; 1;",
+        "qty": "1440.0000",
+        "qty_unit": "UNT",
+        "origin": "CN",
+        "hs_code": "40112020",
+        "net_mass": "82756.8000",
+        "fob_value": "139680.0000"
+      },
+      {
+        "number": "46",
+        "name": "GALLANT; NEW GALLANT BRAND TYRES SIZE 315/80R22.5 20PR 156/152(154/151) L (M) GL602-200PC; SHANDONG; UN; 1; 80; 200; 22.5; 315/80R22.5; GL602; 58Kilogram; 1;",
+        "qty": "200.0000",
+        "qty_unit": "UNT",
+        "origin": "CN",
+        "hs_code": "40112020",
+        "net_mass": "11506.0000",
+        "fob_value": "19600.0000"
+      },
+      {
+        "number": "47",
+        "name": "GALLANT; NEW GALLANT BRAND TYRES SIZE 385/65R22.5 20PR 160K GL621-190PCS; SHANDONG; UN; 1; 65; 190; 22.5; 385/65R22.5; GL621; 67Kilogram; 1;",
+        "qty": "190.0000",
+        "qty_unit": "UNT",
+        "origin": "CN",
+        "hs_code": "40112020",
+        "net_mass": "12815.5000",
+        "fob_value": "22154.0000"
+      },
+      {
+        "number": "48",
+        "name": "ROADWING; NEW ROADWING BRAND TYRES SIZE315/80R22.5 20PR 156/152(154/151) L(M)DW720tx-1300P; SHANDONG; UN; 1; 80; 1300; 22.5; 315/80 R22.5; DW720tx; 53Kilogram; 1;",
+        "qty": "1300.0000",
+        "qty_unit": "UNT",
+        "origin": "CN",
+        "hs_code": "40112020",
+        "net_mass": "68705.0000",
+        "fob_value": "118300.0000"
+      }
+    ],
+    "extraction_remarks": "IDF pp. 1–4 FOB value and Incoterm differ from the commercial invoice; rows 7, 26, 28–30, 34, 39–40, 42 and 48 describe products absent from the invoice or packing list. IDF rows 28–29 AGATE 315/80R22.5 patterns and quantities differ from the invoice and packing list; row 45 GALLANT GL601 quantity differs from those documents. IDF row 16 and other flap rows declare quantity in KGM despite piece counts in their descriptions; the dedicated quantity and unit columns are preserved."
   }
 }

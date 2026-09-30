@@ -21,7 +21,7 @@ class ExtractionTests(unittest.TestCase):
         self.pdf = Path(temporary.name) / "invoice.pdf"
         self.pdf.write_bytes(b"%PDF-1.4\nexample")
         self.documents = {"commercial_invoice": self.pdf}
-        self.prompt = ai_actions.EXTRACTION_PROMPT_PATH.read_text()
+        self.prompt = ai_actions.EXTRACTION_PROMPT_PATH.read_text(encoding="utf-8")
         self.output = json.loads(re.search(r"```json\s*(.*?)```", self.prompt, re.S)[1])
         self.patcher = patch("ai_actions.OpenAI")
         self.factory = self.patcher.start()
@@ -48,6 +48,34 @@ class ExtractionTests(unittest.TestCase):
         )
         self.assertFalse(request["store"])
 
+    def test_schema_requires_every_property_and_forbids_null(self):
+        schema = ai_actions.ExtractedEntryDocuments.model_json_schema()
+
+        def check(node):
+            if isinstance(node, dict):
+                self.assertNotEqual(node.get("type"), "null")
+                if node.get("type") == "object":
+                    self.assertEqual(set(node["required"]), set(node["properties"]))
+                    self.assertIs(node["additionalProperties"], False)
+                for value in node.values():
+                    check(value)
+            elif isinstance(node, list):
+                for value in node:
+                    check(value)
+
+        check(schema)
+
+    def test_idf_values_preserve_leading_zeros_and_quantity_units(self):
+        idf = self.output["import_declaration_form"]
+        idf["importer"]["county_code"] = "01"
+        idf["line_items"] = [{
+            "number": "01", "name": "Goods", "qty": "2.50",
+            "qty_unit": "KGM", "origin": "KE", "hs_code": "01012100",
+            "net_mass": "2.50", "fob_value": "100.00",
+        }]
+        self.respond(json.dumps(self.output))
+        self.assertEqual(ai_actions.extract_entry_documents(self.documents), self.output)
+
     def test_report_extra_keys_and_non_string_values_are_rejected(self):
         for invalid in (
             {**self.output, "extraction_report": {}},
@@ -63,6 +91,7 @@ class ExtractionTests(unittest.TestCase):
     def test_empty_arrays_are_accepted(self):
         self.output["commercial_invoice"]["line_items"] = []
         self.output["packing_list"]["line_items"] = []
+        self.output["import_declaration_form"]["line_items"] = []
         self.respond(json.dumps(self.output))
         self.assertEqual(ai_actions.extract_entry_documents(self.documents), self.output)
 
