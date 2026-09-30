@@ -380,11 +380,20 @@ packing list, or certificate of origin.
 - `mode_of_transport.name`: Extract the explicitly stated mode,
   such as "Sea transport". Do not infer it from a port or route.
 
-- `mode_of_transport.code`: Extract an explicitly printed
-  transport-mode code. If only the name is printed, leave the
-  code blank unless a supplied authoritative transport-code
-  reference supports an unambiguous mapping. Do not use the
-  package-code workbook for transport codes.
+- `mode_of_transport.code`: Using the mode_of_transport.name obtained above, map it to its official digit code using the below list of tranport codes:
+```json
+{
+  "1": "Sea transport",
+  "2": "Rail transport",
+  "3": "Road transport",
+  "4": "Air transport",
+  "5": "Postal consignment",
+  "6": "Chartered Flights",
+  "7": "Fixed transport installations",
+  "8": "Inland waterway transport",
+  "9": "Other"
+}
+```
 
 - `line_items[].number`: Preserve the printed IDF item number.
   If item numbers are absent throughout the table, generate

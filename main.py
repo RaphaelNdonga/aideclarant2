@@ -20,14 +20,14 @@ async def root():
 
 @app.post("/parse-documents")
 def parse_documents(
-    commercial_invoice: Annotated[UploadFile, File(description="Commercial invoice PDF")],
-    packing_list: Annotated[UploadFile, File(description="Packing list PDF")],
+    commercial_invoice: Annotated[UploadFile | None, File(description="Commercial invoice PDF")] = None,
+    packing_list: Annotated[UploadFile | None, File(description="Packing list PDF")] = None,
     certificate_of_origin: Annotated[
-        UploadFile, File(description="Certificate of origin PDF")
-    ],
+        UploadFile | None, File(description="Certificate of origin PDF")
+    ] = None,
     bill_of_lading: Annotated[UploadFile | None, File()] = None,
     insurance: Annotated[UploadFile | None, File()] = None,
-    import_declaration_form: Annotated[UploadFile | None, File()] = None,
+    import_declaration_form: Annotated[UploadFile | None, File(description="Import declaration form")] = None,
 ):
     documents:dict[str, UploadFile] = {
         "commercial_invoice": commercial_invoice,
