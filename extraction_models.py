@@ -88,8 +88,18 @@ class ImportDeclarationForm(ExtractionModel):
     extraction_remarks: str
 
 
+class BillOfLading(ExtractionModel):
+    no: str
+    place_of_delivery: str
+    port_of_discharge: str
+    vessel: str
+    voyage_no: str
+    extraction_remarks: str
+
+
 class ExtractedEntryDocuments(ExtractionModel):
     commercial_invoice: CommercialInvoice
     packing_list: PackingList
     certificate_of_origin: CertificateOfOrigin
     import_declaration_form: ImportDeclarationForm
+    bill_of_lading: BillOfLading

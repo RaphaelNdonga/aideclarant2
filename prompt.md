@@ -152,6 +152,14 @@ Write exactly these keys in `extracted_entry_docs.json`. The objects inside the 
       }
     ],
     "extraction_remarks": ""
+  },
+  "bill_of_lading": {
+      "no": "",
+      "place_of_delivery": "",
+      "port_of_discharge":"",
+      "vessel": "",
+      "voyage_no": "",
+      "extraction_remarks": ""
   }
 
 }
@@ -451,6 +459,44 @@ packing list, or certificate of origin.
 
 - `extraction_remarks`: Apply the shared Extraction remarks
   rules. Preserve each row's declared quantity unit in `qty_unit`.
+
+### Bill of lading
+
+Extract `bill_of_lading` from the supplied bill of lading,
+including any continuation pages.
+
+- `no`: Extract the number explicitly labeled "Bill of Lading No.",
+  "B/L No.", or an equivalent label. Preserve leading zeros and
+  meaningful punctuation. Do not substitute the booking number,
+  container number, shipment reference, or seal number.
+
+- `place_of_delivery`: Extract the location explicitly labeled
+  "Place of Delivery" or an equivalent final-delivery field.
+  Do not substitute the port of discharge, place of receipt,
+  or consignee's address. If absent, leave it blank even when
+  the port of discharge is known.
+
+- `port_of_discharge`: Extract the location explicitly labeled
+  "Port of Discharge". Do not substitute the port of loading,
+  a transshipment port, or the place of delivery.
+
+- `vessel`: Extract the vessel name from the main ocean-carriage
+  field, such as "Ocean Vessel" or "Vessel".
+  Do not substitute a vessel listed only under pre-carriage.
+  Where multiple vessels are shown and the main vessel cannot
+  be identified unambiguously, leave the field blank and
+  explain the issue in extraction_remarks.
+
+- `voyage_no`: Extract the voyage number associated with the
+  selected vessel. Preserve leading zeros, letters, and
+  meaningful punctuation. Do not substitute a service name,
+  booking reference, or voyage belonging to another vessel.
+
+- When vessel and voyage appear in a combined field, separate
+  them only when their boundaries are clear. Do not guess
+  whether a number forms part of the vessel name or voyage.
+
+- `extraction_remarks`: Apply the shared Extraction remarks rules.
 
 ## Validation and delivery
 
