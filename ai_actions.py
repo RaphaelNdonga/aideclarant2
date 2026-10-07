@@ -125,4 +125,14 @@ def extract_entry_documents(
     try:
         return ExtractedEntryDocuments.model_validate_json(output).model_dump()
     except ValidationError as exc:
-        raise HTTPException(status_code=502, detail="OpenAI returned data that does not match the extraction structure.") from exc
+        print("Extraction validation errors:")
+        print(exc.errors(include_input=False))
+
+        # Temporary local debugging: may contain sensitive shipment data.
+        print("Raw AI output:")
+        print(repr(output))
+
+        raise HTTPException(
+            status_code=502,
+            detail="OpenAI returned data that does not match the extraction structure.",
+        ) from exc

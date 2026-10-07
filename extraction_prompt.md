@@ -2,7 +2,7 @@
 
 ## Objective
 
-Extract information from the supplied commercial invoice, packing list, certificate of origin, and import declaration form into one combined `extracted_entry_docs.json` file.
+Extract information from the supplied shipment documents into one JSON object matching the Application output structure.
 
 Accuracy takes priority over completeness. Never invent a value to fill a field. This task extracts information; it does not submit a customs declaration or modify any external system.
 
@@ -98,6 +98,7 @@ Write exactly these keys in `extracted_entry_docs.json`. The objects inside the 
           "code": "",
           "qty": ""
         },
+        "container_no": "",
         "total_gross_mass": "",
         "total_net_mass": ""
       }
@@ -169,7 +170,21 @@ Write exactly these keys in `extracted_entry_docs.json`. The objects inside the 
 
 Apply these rules to line_items[].package in both the commercial
 invoice and packing list:
-
+- Extract package.type, package.code, and package.qty independently
+  for each document, using that document's evidence and the shared
+  package mapping rules.
+- When corresponding invoice and packing-list items have different
+  package types, preserve each document's own supported package
+  values and report the difference in both documents'
+  extraction_remarks.
+- A difference between documents must never, by itself, cause a
+  package field to be blanked, replaced, or changed to match the
+  other document.
+- Leave a package field blank only when evidence within its own
+  source document is missing, unreadable, ambiguous, or internally
+  conflicting, or when the required code mapping cannot be verified.
+  An unavailable code mapping affects package.code only; preserve
+  independently supported package.type and package.qty.
 - Prefer explicitly stated item-level physical packaging. Extract
   its type and printed count into package.type and package.qty.
 - When explicit packaging is absent, use the printed quantity unit
@@ -213,7 +228,11 @@ invoice and packing list:
 - `freight_amount`: Extract only a separately stated freight charge in the invoice currency. Included freight with no separate amount is missing, not zero. If the charge is in a different currency, leave this field blank.
 - `serial_number`: Extract the invoice number, not a purchase order, account, shipment, or tax registration number.
 - `line_items[].number`: Generate sequential strings starting at `"1"`.
-- `line_items[].name`: Combine the brand or collection and product description only when the document explicitly associates them with that item. Do not repeat a brand already present in the description. Otherwise use the description alone.
+- `line_items[].name`: 
+  - Always place the item's brand first, followed by the remaining product description, model, and specifications, while preserving all the descriptive details.
+  - Identify the brand only from the same source document, including a clearly associated brand column or heading.
+  - If the brand appears elsewhere in the description, move it to the beginning without duplicating it.
+  - If no brand is stated, retain the available description without inventing a brand or borrowing one from another document.
 - `line_items[].qty`: Extract the quantity in the source unit. Do not convert cartons into pieces without an explicitly requested conversion rule.
 - `line_items[].package` - refer to the shared package rules
 - `line_items[].unit_price`: Extract the printed unit price.
@@ -225,6 +244,8 @@ invoice and packing list:
 - `line_items[].number` and `name`: Apply the same numbering and description rules as for the invoice, independently of invoice row order.
 - `line_items[].qty`: Extract the product quantity, not the package count. If only a package count is available, leave product quantity blank.
 - `line_items[].package` - refer to the shared package rules 
+- `line_items[].container_no`: Extract the container number associated with that product row from the packing list's container-number column or an explicitly linked container heading.
+  - When a merged cell or clearly defined container group applies to multiple product rows, repeat that container number for each affected row.
 - `total_gross_mass` and `total_net_mass`: 
   - can be found in the document as mass or weight.
   - If there is no distinction between gross and net, register the same value to both total_gross_mass and total_net_mass values in the output.
@@ -452,7 +473,7 @@ Before delivering:
 5. Ensure every populated field is supported and every missing, unreadable, ambiguous, or conflicting scalar value is blank, with empty arrays where no entries can be reliably extracted.
 6. Ensure every populated field is supported and every missing, unreadable, ambiguous, or conflicting scalar value is blank, with empty arrays where no entries can be reliably extracted.
 7. Before reporting a discrepancy, visually recheck the affected rows' item names in their original documents. Enlarge or crop the relevant regions when possible, and verify the item name character by character, particularly item names differing by one character.
-8. Use discrepancies only to identify item names requiring reinspection. Change an extracted value only when the source document supports the correction; never change it merely to make totals agree.
+8. Use discrepancies only to identify item names requiring reinspection. Change an extracted value only when the source document supports the correction; never change it merely to make totals agree. In the extraction remarks, explicitly state that a reinspection was done.
 9. If a value remains unreadable or ambiguous after reinspection, leave the affected field blank and explain the uncertainty.
-
-Save and return `extracted_entry_docs.json` without Markdown fences inside the file. If the intended document set cannot be determined or a schema mismatch prevents reliable output, ask the specific question needed to proceed; do not generate misleading application data. If file creation is unavailable, return the JSON output in a clearly labeled code block and explain that the file could not be created.
+10. Return exactly one valid JSON object matching the Application output structure. The response must begin with { and end with }.
+11. Preserve every required key and the specified value types. Record missing documents and extraction uncertainties in the relevant extraction_remarks fields.
