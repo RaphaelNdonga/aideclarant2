@@ -1,0 +1,16 @@
+{
+    "idf_item_description": "",
+    "gross_mass": "",
+    "idf_net_mass": "",
+    "idf_qty": "",
+    "packages": [
+        {
+            "code": "",
+            "qty": "",
+            "description": "",
+            "marks": "",
+            "uniq_lp": "",
+            "lp_actual_wt": ""
+        }
+    ]
+}

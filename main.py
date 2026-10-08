@@ -6,7 +6,9 @@ from dotenv import load_dotenv
 from fastapi import Depends, FastAPI, File, HTTPException, UploadFile
 
 from ai_actions import MAX_DOCUMENT_BYTES, create_executive_summary, extract_entry_documents
+from ai_actions import generate_entry_items as generate_entry_items_ai
 from extraction_models import ExtractedEntryDocuments
+from generation_models import EntryItem
 
 load_dotenv()
 app = FastAPI()
@@ -88,3 +90,18 @@ def extract_documents(saved: Annotated[dict, Depends(parse_documents)]):
         for name, path in saved["documents"].items()
     }
     return extract_entry_documents(paths)
+
+@app.post("/generate-entry-items", response_model=list[EntryItem])
+def generate_entry_items(
+    lp: Annotated[UploadFile, File(description="lp.json")],
+    entry_docs: Annotated[UploadFile, File(description="entry_docs.json")],
+):
+    """Generate entry items from uploaded LP and entry-document JSON files."""
+    contents = {}
+    try:
+        for name, document in {"lp": lp, "entry_docs": entry_docs}.items():
+            contents[name] = document.file.read()
+    finally:
+        lp.file.close()
+        entry_docs.file.close()
+    return generate_entry_items_ai(contents["lp"], contents["entry_docs"])

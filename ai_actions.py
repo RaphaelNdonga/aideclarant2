@@ -1,6 +1,7 @@
 """Summaries and structured extraction grounded in shipment documents."""
 
 import base64
+import json
 import os
 from pathlib import Path
 
@@ -9,16 +10,26 @@ from openai import APIConnectionError, APIStatusError, APITimeoutError, OpenAI, 
 from pydantic import ValidationError
 
 from extraction_models import ExtractedEntryDocuments
+from generation_models import EntryItem, GeneratedEntryItems
 
 MAX_DOCUMENT_BYTES = 50_000_000
+GENERATION_PROMPT_PATH = Path(__file__).resolve().parent / "generation_prompt.md"
 EXTRACTION_PROMPT_PATH = Path(__file__).resolve().parent / "extraction_prompt.md"
 PACKAGE_REFERENCE_PATH = Path(__file__).resolve().parent / "UN-CEFACT-Rec21.xlsx"
+
+
+def validate_document_size(total_bytes: int, *, file_type: str = "input") -> None:
+    """Reject combined input sizes at or above the document limit."""
+    if total_bytes >= MAX_DOCUMENT_BYTES:
+        raise HTTPException(
+            status_code=413,
+            detail=f"Combined {file_type} files must be under 50 MB.",
+        )
 
 
 def prompt_ai(
     instructions: str,
     content: list[dict],
-    *,
     max_output_tokens: int = 4000,
     text: dict | None = None,
 ) -> str:
@@ -101,8 +112,7 @@ def extract_entry_documents(
         with path.open("rb") as source:
             data = source.read(MAX_DOCUMENT_BYTES - total_bytes + 1)
         total_bytes += len(data)
-        if total_bytes >= MAX_DOCUMENT_BYTES:
-            raise HTTPException(status_code=413, detail="Combined input files must be under 50 MB.")
+        validate_document_size(total_bytes)
         if mime == "application/pdf" and not data.startswith(b"%PDF-"):
             raise HTTPException(status_code=415, detail=f"{filename} is not a PDF file.")
         content.append({
@@ -135,4 +145,45 @@ def extract_entry_documents(
         raise HTTPException(
             status_code=502,
             detail="OpenAI returned data that does not match the extraction structure.",
+        ) from exc
+
+
+def generate_entry_items(lp: bytes, entry_docs: bytes) -> list[EntryItem]:
+    """Generate validated entry items from the contents of two uploaded JSON files."""
+    validate_document_size(len(lp) + len(entry_docs), file_type="JSON")
+
+    content = []
+    for filename, data, expected_type in (
+        ("lp.json", lp, list),
+        ("entry_docs.json", entry_docs, dict),
+    ):
+        try:
+            decoded = data.decode("utf-8-sig")
+            parsed = json.loads(decoded)
+        except (json.JSONDecodeError, UnicodeDecodeError) as exc:
+            raise HTTPException(status_code=400, detail=f"{filename} must contain valid UTF-8 JSON.") from exc
+        if not isinstance(parsed, expected_type):
+            shape = "array" if expected_type is list else "object"
+            raise HTTPException(status_code=400, detail=f"{filename} must contain a JSON {shape}.")
+        # Send JSON as text so every row is available without file conversion.
+        content.append({"type": "input_text", "text": f"{filename}:\n{decoded}"})
+
+    prompt = GENERATION_PROMPT_PATH.read_text(encoding="utf-8")
+    output = prompt_ai(
+        prompt,
+        content,
+        max_output_tokens=16000,
+        text={"format": {
+            "type": "json_schema",
+            "name": "generated_entry_items",
+            "strict": True,
+            "schema": GeneratedEntryItems.model_json_schema(),
+        }},
+    )
+    try:
+        return GeneratedEntryItems.model_validate_json(output).model_dump()
+    except ValidationError as exc:
+        raise HTTPException(
+            status_code=502,
+            detail="OpenAI returned data that does not match the entry-item structure.",
         ) from exc
