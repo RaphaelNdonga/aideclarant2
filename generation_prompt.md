@@ -11,39 +11,41 @@ Return only valid JSON, without Markdown fences, explanations, or introductory t
 
 Use exactly this structure and field order. All scalar values must be strings.
 ```json
-[
-  {
-    "number": "",
-    "idf_item_number": "",
-    "idf_item_description": "",
-    "total_gross_mass": "",
-    "idf_net_mass": "",
-    "total_qty": "",
-    "idf_qty": "",
-    "unit_fob": "",
-    "total_fob": "",
-    "generation_remarks": "",
-    "packages": [
-      {
-        "code": "",
-        "qty": "",
-        "description": "",
-        "marks": "",
-        "uniq_lp": "",
-        "lp_actual_wt": ""
-      }
-    ]
-  }
-]
+{
+  "items":[
+    {
+      "number": "",
+      "idf_item_number": "",
+      "idf_item_description": "",
+      "total_gross_mass": "",
+      "idf_net_mass": "",
+      "total_qty": "",
+      "idf_qty": "",
+      "unit_fob": "",
+      "total_fob": "",
+      "generation_remarks": "",
+      "packages": [
+        {
+          "code": "",
+          "qty": "",
+          "description": "",
+          "marks": "",
+          "uniq_lp": "",
+          "lp_actual_wt": ""
+        }
+      ]
+    }
+  ]
+}
 ```
 
-## 1. Normalize values for comparison
-
-- Compare numeric values using decimal arithmetic, ignoring thousands separators and insignificant trailing decimal zeros.
-- Compare container numbers after trimming whitespace and converting to uppercase.
-- For product matching, normalize capitalization, spacing, punctuation, and equivalent specification ordering.
-- Normalization is for comparison only. Preserve source descriptions exactly in the output.
-- Missing values are not equivalent to zero.
+## 1. Normalize values for comparison and output
+- Normalize numeric values using decimal arithmetic: remove thousands separators and insignificant trailing decimal zeros. Use these normalized values for both comparison and output.
+- Normalize container numbers by trimming surrounding whitespace and converting to uppercase. Output the normalized container numbers.
+- Normalize product descriptions by converting to uppercase, trimming surrounding whitespace, collapsing repeated spaces, and removing punctuation only where it does not affect meaning. Preserve punctuation within model numbers, dimensions, and specifications.
+- Where specifications appear in different but equivalent orders, use a consistent ordering without changing their meaning or association.
+- Use the normalized product descriptions for both matching and output.
+- Missing values are not equivalent to zero. Preserve missing values using the output schema’s designated missing-value representation.
 
 ## 2. Assign LP rows to packing-list rows
 
@@ -92,15 +94,12 @@ First attempt to match using item-specific information or explicit references in
 
 A generic shipment description does not identify an individual product.
 
-If direct identification is unavailable, consider LP `actual_wt` numerically equalling IDF `net_mass` as supporting evidence only. Before accepting such a match, verify that:
+If direct identification is unavailable, consider LP `actual_wt` numerically equalling IDF `net_mass` as supporting evidence. Before accepting such a match, verify that:
 
 - The candidate is unique among eligible IDF items.
 - The records refer to comparable weight units and scope.
-- Other available information supports the association.
 - No product attributes contradict it.
 - The association does not duplicate an allocation already accounted for.
-
-Weight equality alone does not guarantee product identity. Do not infer product type from zero LP quantity.
 
 If a match cannot be established, preserve the LP row as unresolved rather than inventing an IDF association.
 

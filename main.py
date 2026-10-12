@@ -8,7 +8,7 @@ from fastapi import Depends, FastAPI, File, HTTPException, UploadFile
 from ai_actions import MAX_DOCUMENT_BYTES, create_executive_summary, extract_entry_documents
 from ai_actions import generate_entry_items as generate_entry_items_ai
 from extraction_models import ExtractedEntryDocuments
-from generation_models import EntryItem
+from generation_models import EntryItem, GeneratedEntryItems
 
 load_dotenv()
 app = FastAPI()
@@ -91,7 +91,7 @@ def extract_documents(saved: Annotated[dict, Depends(parse_documents)]):
     }
     return extract_entry_documents(paths)
 
-@app.post("/generate-entry-items", response_model=list[EntryItem])
+@app.post("/generate-entry-items", response_model=GeneratedEntryItems)
 def generate_entry_items(
     lp: Annotated[UploadFile, File(description="lp.json")],
     entry_docs: Annotated[UploadFile, File(description="entry_docs.json")],
