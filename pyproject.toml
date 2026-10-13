@@ -5,4 +5,5 @@ requires-python = ">=3.12"
 dependencies = [
     "fastapi[standard]>=0.141.1",
     "openai>=2.0.0",
+    "rapidfuzz>=3.14.6",
 ]

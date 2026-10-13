@@ -49,7 +49,7 @@ def prompt_ai(
                 store=False,
             )
     except APITimeoutError as exc:
-        raise HTTPException(status_code=504, detail="OpenAI request timed out. Try again.") from exc
+        raise HTTPException(status_code=504, detail=f"OpenAI request timed out. Try again.\n {exc.body}") from exc
     except RateLimitError as exc:
         raise HTTPException(status_code=503, detail="OpenAI quota or rate limit reached. Check API billing or try later.") from exc
     except APIConnectionError as exc:
