@@ -129,11 +129,15 @@ for key in items_by_container_and_qty.keys():
                 confirmed_packages.append(package)
 
 
-print(f"confirmed packages: {len(confirmed_packages)}: \n")
+output_path = Path(__file__).with_name("entry_items.json")
+with output_path.open("w", encoding="utf-8") as output_file:
+    json.dump(
+        {"items": [package.model_dump(mode="json") for package in confirmed_packages]},
+        output_file,
+        indent=2,
+        ensure_ascii=False,
+    )
 
-for package in confirmed_packages:
-    print(package)
-    print("\n")
 # output_path = Path(__file__).with_name("lp_package_combo_output.txt")
 # with output_path.open("w", encoding="utf-8") as output_file:
 #     for (container_no, qty), group in items_by_container_and_qty.items():
