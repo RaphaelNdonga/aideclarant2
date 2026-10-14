@@ -1416,16 +1416,12 @@
     ],
     "extraction_remarks": "IDF pp. 1–4 FOB value and Incoterm differ from the commercial invoice; rows 7, 26, 28–30, 34, 39–40, 42 and 48 describe products absent from the invoice or packing list. IDF rows 28–29 AGATE 315/80R22.5 patterns and quantities differ from the invoice and packing list; row 45 GALLANT GL601 quantity differs from those documents. IDF row 16 and other flap rows declare quantity in KGM despite piece counts in their descriptions; the dedicated quantity and unit columns are preserved."
   },
-  "insurance": {
-      "currency": "",
-      "amount": ""
-  },
-
   "bill_of_lading": {
     "no": "MEDUY8922278",
     "place_of_delivery": "Embakasi, KENYA",
     "port_of_discharge": "Mombasa, KENYA",
     "vessel": "MARIANNA I",
-    "voyage_no": "ZF630A"
+    "voyage_no": "ZF630A",
+    "extraction_remarks": ""
   }
 }
