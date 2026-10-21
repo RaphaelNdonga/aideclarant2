@@ -9,8 +9,8 @@ from fastapi import HTTPException
 from openai import APIConnectionError, APIStatusError, APITimeoutError, OpenAI, RateLimitError
 from pydantic import ValidationError
 
-from extraction_models import ExtractedEntryDocuments
-from generation_models import EntryItem, GeneratedEntryItems
+from .extraction_models import ExtractedEntryDocuments
+from .generation_models import EntryItem, GeneratedEntryItems
 
 MAX_DOCUMENT_BYTES = 50_000_000
 GENERATION_PROMPT_PATH = Path(__file__).resolve().parent / "generation_prompt.md"

@@ -5,10 +5,10 @@ from dotenv import load_dotenv
 
 from fastapi import Depends, FastAPI, File, HTTPException, UploadFile
 
-from ai_actions import MAX_DOCUMENT_BYTES, create_executive_summary, extract_entry_documents
-from ai_actions import generate_entry_items as generate_entry_items_ai
-from extraction_models import ExtractedEntryDocuments
-from generation_models import EntryItem, GeneratedEntryItems
+from .ai_actions import MAX_DOCUMENT_BYTES, create_executive_summary, extract_entry_documents
+from .ai_actions import generate_entry_items as generate_entry_items_ai
+from .extraction_models import ExtractedEntryDocuments
+from .generation_models import EntryItem, GeneratedEntryItems
 
 load_dotenv()
 app = FastAPI()

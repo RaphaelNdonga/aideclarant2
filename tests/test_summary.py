@@ -10,8 +10,8 @@ from unittest.mock import patch
 
 from fastapi.testclient import TestClient
 
-import main
-import ai_actions
+from src import main
+from src import ai_actions
 
 
 class SummaryTests(unittest.TestCase):
@@ -31,7 +31,7 @@ class SummaryTests(unittest.TestCase):
         return {name: (f"{name}.pdf", b"%PDF-1.4\n" + name.encode(), "application/pdf") for name in names}
 
     @patch.dict(os.environ, {"OPENAI_API_KEY": "test-key"})
-    @patch("ai_actions.OpenAI")
+    @patch("src.ai_actions.OpenAI")
     def test_extraction_endpoint(self, factory):
         prompt = ai_actions.EXTRACTION_PROMPT_PATH.read_text()
         expected = json.loads(re.search(r"```json\s*(.*?)```", prompt, re.S)[1])
@@ -46,14 +46,14 @@ class SummaryTests(unittest.TestCase):
         self.assertEqual(len(content), 8)  # Prompt, six PDFs, and the reference workbook.
         self.assertEqual(content[-1]["filename"], "UN-CEFACT-Rec21.xlsx")
 
-    @patch("main.extract_entry_documents")
+    @patch("src.main.extract_entry_documents")
     def test_extraction_endpoint_requires_uploads(self, extract):
         response = self.client.post("/extract-entry-documents")
         self.assertEqual(response.status_code, 422)
         extract.assert_not_called()
 
     @patch.dict(os.environ, {"OPENAI_API_KEY": "test-key"})
-    @patch("ai_actions.OpenAI")
+    @patch("src.ai_actions.OpenAI")
     def test_all_documents_are_sent_and_summary_returned(self, factory):
         api = factory.return_value.__enter__.return_value
         api.responses.create.return_value = SimpleNamespace(status="completed", output_text="Shipment summary")
@@ -70,7 +70,7 @@ class SummaryTests(unittest.TestCase):
         self.assertFalse(request["store"])
         self.assertEqual(len(list(self.directory.glob("*.pdf"))), 6)
 
-    @patch("ai_actions.OpenAI")
+    @patch("src.ai_actions.OpenAI")
     def test_parse_documents_does_not_call_openai(self, factory):
         response = self.client.post("/parse-documents", files=self.files())
         self.assertEqual(response.status_code, 200)
@@ -95,7 +95,7 @@ class SummaryTests(unittest.TestCase):
         self.assertEqual(list(self.directory.iterdir()), [])
 
     @patch.dict(os.environ, {"OPENAI_API_KEY": "test-key"})
-    @patch("ai_actions.OpenAI")
+    @patch("src.ai_actions.OpenAI")
     def test_incomplete_summary_is_not_returned_as_success(self, factory):
         api = factory.return_value.__enter__.return_value
         api.responses.create.return_value = SimpleNamespace(status="incomplete", output_text="Partial")
@@ -103,7 +103,7 @@ class SummaryTests(unittest.TestCase):
         self.assertEqual(response.status_code, 502)
 
     @patch.dict(os.environ, {"OPENAI_API_KEY": "test-key"})
-    @patch("ai_actions.OpenAI")
+    @patch("src.ai_actions.OpenAI")
     def test_connection_failure(self, factory):
         import httpx
 

@@ -1,9 +1,10 @@
 # Shipment document summaries
 
+Run commands from the project root (the folder containing `pyproject.toml`).
 Install dependencies with `uv sync`. Set `OPENAI_API_KEY` in your environment,
-then start the server with `uv run fastapi dev main.py`. Alternatively, copy
-`.env.example` to `.env`, supply your key, and run
-`uv run uvicorn main:app --reload --env-file .env`.
+then start the server with `uv run fastapi dev`. Alternatively, copy
+your environment settings to `src/.env`, supply your key, and run
+`uv run uvicorn src.main:app --reload --env-file src/.env`.
 `OPENAI_MODEL` optionally overrides the default `gpt-4.1`; use a model that
 supports PDF inputs through the Responses API.
 
@@ -47,7 +48,7 @@ For structured extraction, call `extract_entry_documents` from Python:
 
 ```python
 from pathlib import Path
-from ai_actions import extract_entry_documents
+from src.ai_actions import extract_entry_documents
 
 documents = {path.stem: path for path in Path("attachments").glob("*.pdf")}
 result = extract_entry_documents(documents)

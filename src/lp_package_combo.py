@@ -2,9 +2,9 @@ import json
 from decimal import Decimal
 from pathlib import Path
 from rapidfuzz import fuzz
-from lp_models import LPItem
-from extraction_models import ExtractedEntryDocuments, Package, PackingItem
-from generation_models import EntryPackage
+from .lp_models import LPItem
+from .extraction_models import ExtractedEntryDocuments, Package, PackingItem
+from .generation_models import EntryPackage
 from typing import TypedDict
 
 class ItemGroup(TypedDict):

@@ -6,9 +6,9 @@ from unittest.mock import patch
 
 from fastapi.testclient import TestClient
 
-import ai_actions
-import main
-from generation_models import EntryItem, EntryPackage
+from src import ai_actions
+from src import main
+from src.generation_models import EntryItem, EntryPackage
 
 
 @patch.dict(os.environ, {"OPENAI_API_KEY": "test-key"})
@@ -21,7 +21,7 @@ class GenerationTests(unittest.TestCase):
         }
         self.item = {name: "" for name in EntryItem.model_fields}
         self.item["packages"] = [{name: "" for name in EntryPackage.model_fields}]
-        self.patcher = patch("ai_actions.OpenAI")
+        self.patcher = patch("src.ai_actions.OpenAI")
         self.factory = self.patcher.start()
         self.addCleanup(self.patcher.stop)
         self.api = self.factory.return_value.__enter__.return_value

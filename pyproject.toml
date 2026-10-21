@@ -1,5 +1,5 @@
 [project]
-name = "awesome-stuff"
+name = "aideclarant"
 version = "0.1.0"
 requires-python = ">=3.12"
 dependencies = [
@@ -7,3 +7,6 @@ dependencies = [
     "openai>=2.0.0",
     "rapidfuzz>=3.14.6",
 ]
+
+[tool.fastapi]
+entrypoint = "src.main:app"

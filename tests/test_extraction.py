@@ -10,7 +10,7 @@ from unittest.mock import patch
 
 from fastapi import HTTPException
 
-import ai_actions
+from src import ai_actions
 
 
 @patch.dict(os.environ, {"OPENAI_API_KEY": "test-key"})
@@ -23,7 +23,7 @@ class ExtractionTests(unittest.TestCase):
         self.documents = {"commercial_invoice": self.pdf}
         self.prompt = ai_actions.EXTRACTION_PROMPT_PATH.read_text(encoding="utf-8")
         self.output = json.loads(re.search(r"```json\s*(.*?)```", self.prompt, re.S)[1])
-        self.patcher = patch("ai_actions.OpenAI")
+        self.patcher = patch("src.ai_actions.OpenAI")
         self.factory = self.patcher.start()
         self.addCleanup(self.patcher.stop)
         self.api = self.factory.return_value.__enter__.return_value
